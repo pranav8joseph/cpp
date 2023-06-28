@@ -1,6 +1,7 @@
 #include <iostream> 
 #include <string>
 #include <vector>
+#include <cmath>
 
 std::string greetings(){
     std::cout << "Hello! I will be your calculator today. \n" 
@@ -27,7 +28,7 @@ double calculations(double num1, double num2) {
     } else if (symbol == '/') {
         output = num1 / num2;
     } else if (symbol == '^') {
-        output = std::pow(num1, num2); 
+        output = pow(num1, num2); 
     } else if (symbol == '%') {
         int num = static_cast<int>(num1); 
         int nums = static_cast<int>(num2);
@@ -58,4 +59,5 @@ int main() {
     if (again == "N" || again == "n") {
         return 0; 
     }
+    return 0; 
 }
