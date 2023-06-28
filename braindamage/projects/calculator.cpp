@@ -1,0 +1,59 @@
+#include <iostream> 
+#include <string>
+#include <vector>
+
+std::string greetings(){
+    std::cout << "Hello! I will be your calculator today. \n" 
+              << "Your options are: \n"
+              << "Addition using the symbol: +\n"
+              << "Subtraction using the symbol: -\n"
+              << "Multiplication using the symbol: *\n"
+              << "Division using the symbol: /\n"
+              << "Do exponents using the symbol: ^\n"
+              << "Find the remainder after dividing using the symbol: % (This might not be too accurate)\n" 
+            //   add this later --> "Press Q at any time to quit\n"
+              << "---------------------------------------------------\n"; 
+    return; 
+}
+
+double calculations(double num1, double num2) {
+    char symbol; 
+    double output; 
+    if (symbol == '+') {
+        output = num1 + num2; 
+    } else if (symbol == '-') {
+        output = num1 - num2; 
+    } else if (symbol == '*') {
+        output = num1 * num2; 
+    } else if (symbol == '/') {
+        output = num1 / num2;
+    } else if (symbol == '^') {
+        output = std::pow(num1, num2); 
+    } else if (symbol == '%') {
+        int num = static_cast<int>(num1); 
+        int nums = static_cast<int>(num2);
+        output = num % nums; 
+    } else {
+        std::cout << "invlalid operation" << std::endl; 
+    }
+    
+    std::cout << "= " << output << std::endl; 
+}
+
+int main() {
+    
+    std::string again;
+    do{
+        double num1; 
+        char symbol; 
+        double num2;
+        std::cin >> num1; 
+        std::cin >> symbol; 
+        std::cin >> num2; 
+
+        calculations(num1, num2); 
+
+        std::cout << "is there anything else you would like to do? Y/N\n"; 
+        std::cin >> again;  
+    } while (again != "Y" || again != "y"); 
+}
