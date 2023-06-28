@@ -12,8 +12,7 @@ std::string greetings(){
               << "Do exponents using the symbol: ^\n"
               << "Find the remainder after dividing using the symbol: % (This might not be too accurate)\n" 
             //   add this later --> "Press Q at any time to quit\n"
-              << "---------------------------------------------------\n"; 
-    return; 
+              << "---------------------------------------------------\n";  
 }
 
 double calculations(double num1, double num2) {
@@ -41,9 +40,9 @@ double calculations(double num1, double num2) {
 }
 
 int main() {
-    
+    greetings();
     std::string again;
-    do{
+    while (again == "Y" || again == "y") {
         double num1; 
         char symbol; 
         double num2;
@@ -55,5 +54,8 @@ int main() {
 
         std::cout << "is there anything else you would like to do? Y/N\n"; 
         std::cin >> again;  
-    } while (again != "Y" || again != "y"); 
+    } 
+    if (again == "N" || again == "n") {
+        return 0; 
+    }
 }
