@@ -3,7 +3,7 @@
 #include <vector>
 #include <cmath>
 
-std::string greetings(){
+void greetings(){
     std::cout << "Hello! I will be your calculator today. \n" 
               << "Your options are: \n"
               << "Addition using the symbol: +\n"
@@ -16,48 +16,47 @@ std::string greetings(){
               << "---------------------------------------------------\n";  
 }
 
-double calculations(double num1, double num2) {
-    char symbol; 
+void calculations(double num1, double num2, char symbol) {
     double output; 
-    if (symbol == '+') {
-        output = num1 + num2; 
-    } else if (symbol == '-') {
-        output = num1 - num2; 
-    } else if (symbol == '*') {
-        output = num1 * num2; 
-    } else if (symbol == '/') {
-        output = num1 / num2;
-    } else if (symbol == '^') {
-        output = pow(num1, num2); 
-    } else if (symbol == '%') {
-        int num = static_cast<int>(num1); 
-        int nums = static_cast<int>(num2);
-        output = num % nums; 
-    } else {
+        if (symbol == '+') {
+            output = num1 + num2; 
+        } else if (symbol == '-') {
+            output = num1 - num2; 
+        } else if (symbol == '*') {
+            output = num1 * num2; 
+        } else if (symbol == '/') {
+            output = num1 / num2;
+        } else if (symbol == '^') {
+            output = pow(num1, num2); 
+        } else if (symbol == '%') {
+            int num = static_cast<int>(num1); 
+            int nums = static_cast<int>(num2);
+            output = num % nums; 
+        } else {
         std::cout << "invlalid operation" << std::endl; 
-    }
+        }
     
-    std::cout << "= " << output << std::endl; 
+    std::cout << "= " << output << std::endl;  
 }
 
 int main() {
     greetings();
-    std::string again;
+    std::string again = "Y";
     while (again == "Y" || again == "y") {
         double num1; 
         char symbol; 
         double num2;
-        std::cin >> num1; 
-        std::cin >> symbol; 
-        std::cin >> num2; 
+       std::cout << "Enter the first number: ";
+        std::cin >> num1;
+        std::cout << "Enter the operation symbol: ";
+        std::cin >> symbol;
+        std::cout << "Enter the second number: ";
+        std::cin >> num2;
 
-        calculations(num1, num2); 
+        calculations(num1, num2, symbol); 
 
         std::cout << "is there anything else you would like to do? Y/N\n"; 
         std::cin >> again;  
-    } 
-    if (again == "N" || again == "n") {
+    }
         return 0; 
     }
-    return 0; 
-}
