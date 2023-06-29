@@ -36,7 +36,7 @@ void calculations(double num1, double num2, char symbol) {
         std::cout << "invlalid operation" << std::endl; 
         }
     
-    std::cout << "= " << output << std::endl;  
+    std::cout << num1 << symbol << num2 << " = " << output << std::endl;  
 }
 
 int main() {
