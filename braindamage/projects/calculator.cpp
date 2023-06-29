@@ -46,12 +46,14 @@ int main() {
         double num1; 
         char symbol; 
         double num2;
-       std::cout << "Enter the first number: ";
-        std::cin >> num1;
-        std::cout << "Enter the operation symbol: ";
-        std::cin >> symbol;
-        std::cout << "Enter the second number: ";
-        std::cin >> num2;
+        std::cin >> num1 >> symbol >> num2;
+    // can be added for clarity for the user
+    //    std::cout << "Enter the first number: ";
+    //     std::cin >> num1;
+    //     std::cout << "Enter the operation symbol: ";
+    //     std::cin >> symbol;
+    //     std::cout << "Enter the second number: ";
+    //     std::cin >> num2;
 
         calculations(num1, num2, symbol); 
 
