@@ -5,13 +5,13 @@
 
 void greetings(){
     std::cout << "Hello! I will be your calculator today. \n" 
-              << "Your options are: \n"
+              << "Here are the operations this calculator supports\n"
               << "Addition using the symbol: +\n"
               << "Subtraction using the symbol: -\n"
-              << "Multiplication using the symbol: *\n"
+              << "Multiplication using the symbol: * or x\n"
               << "Division using the symbol: /\n"
               << "Do exponents using the symbol: ^\n"
-              << "Find the remainder after dividing using the symbol: % (This might not be too accurate)\n" 
+              << "Find the remainder after dividing using the symbol: % (This might not be as accurate for decimal numbers)\n" 
             //   add this later --> "Press Q at any time to quit\n"
               << "---------------------------------------------------\n";  
 }
@@ -35,17 +35,17 @@ void calculations(double num1, double num2, char symbol) {
         } else {
         std::cout << "invlalid operation" << std::endl; 
         }
-    
+
     std::cout << num1 << symbol << num2 << " = " << output << std::endl;  
 }
 
 int main() {
     greetings();
     std::string again = "Y";
+    double num1; 
+    char symbol; 
+    double num2;
     while (again == "Y" || again == "y") {
-        double num1; 
-        char symbol; 
-        double num2;
         std::cin >> num1 >> symbol >> num2;
     // can be added for clarity for the user
     //    std::cout << "Enter the first number: ";
