@@ -7,15 +7,15 @@
 #include <vector> 
 #include <cstdlib>
 
-int player1; 
-int player2; 
-std::vector<int> players = {player1, player2};
-std::vector<std::string> board = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
-
 namespace std {
 
+int player1; 
+int player2; 
+vector<int> players = {player1, player2};
+vector<std::string> board = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
+
 void start_game() {
-cout << "Lets play some tic tac toe\n"; 
+    cout << "Lets play some tic tac toe\n"; 
     cout << "Here is the board\n";
     cout << "-----------\n";
     cout << " " << board[0] << " | " << board[1] << " | " << board[2] << " \n";
@@ -122,35 +122,14 @@ void check_for_winner() {
 }
 int main() {
 // start game
-    std::start_game(); 
-// 1st turn
+    std::start_game();
+    
+    for (int i = 0; i < 4; i++) {
     std::player1_update_board(); 
     std::check_for_winner(); 
     std::player2_update_board(); 
     std::check_for_winner();
-// 2nd turn
-    std::player1_update_board(); 
-    std::check_for_winner(); 
-    std::player2_update_board(); 
-    std::check_for_winner();
-// 3rd turn
-    std::player1_update_board(); 
-    std::check_for_winner(); 
-    std::player2_update_board(); 
-    std::check_for_winner();
-// 4th turn
-    std::player1_update_board(); 
-    std::check_for_winner(); 
-    std::player2_update_board(); 
-    std::check_for_winner();
-
-// for (int i = 0; i < 4; i++) {
-//     player1_update_board(); 
-//     check_for_winner(); 
-//     player2_update_board(); 
-//     check_for_winner();
-// }
-
+}
 
 // 5th turn for x 
     std::player1_update_board();
@@ -158,6 +137,60 @@ int main() {
 
     return 0;
 } 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+// // 1st turn
+//     std::player1_update_board(); 
+//     std::check_for_winner(); 
+//     std::player2_update_board(); 
+//     std::check_for_winner();
+// // 2nd turn
+//     std::player1_update_board(); 
+//     std::check_for_winner(); 
+//     std::player2_update_board(); 
+//     std::check_for_winner();
+// // 3rd turn
+//     std::player1_update_board(); 
+//     std::check_for_winner(); 
+//     std::player2_update_board(); 
+//     std::check_for_winner();
+// // 4th turn
+//     std::player1_update_board(); 
+//     std::check_for_winner(); 
+//     std::player2_update_board(); 
+//     std::check_for_winner();
+
+
+
+
+
 
 // ignore this
 
