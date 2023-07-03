@@ -117,9 +117,13 @@ void check_for_winner() {
     } else if (board[2] == "o" && board[4] == "o" && board[6] == "o") {
         cout << "Player 2 wins" << endl;
         exit(0);
+    } else if (board[0] != "1" && board[1] != "2" && board[2] != "3" && board[3] != "4" && board[4] != "5" && board[5] != "6" && board[6] != "7" && board[7] != "8" && board[8] != "9") {
+        cout << "It's a tie" << endl;
+        exit(0);
+    }
 }
 }
-}
+
 int main() {
 // start game
     std::start_game();
