@@ -1,18 +1,15 @@
-// this will be quite painful to write
-// but it will be worth it
-// I hope
+// doesn't work on mac
 
 #include <iostream> 
 #include <string>
 #include <vector> 
 #include <cstdlib>
 
-namespace std {
-
 int player1; 
 int player2; 
-vector<int> players = {player1, player2};
-vector<std::string> board = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
+std::vector<std::string> board = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
+
+namespace std {
 
 void start_game() {
     cout << "Lets play some tic tac toe\n"; 
