@@ -148,7 +148,7 @@ void check_for_winner_2players() {
 
 // play against computer stuff 
 
-void ComputerAsX_offense() {
+void ComputerAsX() {
 
     // first check for all possible winning spots and if there is one choose it, if not check if the other player is about to win and block them. if not choose a spot that will put you 1 move closer to winning. if not choose a random spot.
 
@@ -305,9 +305,18 @@ void ComputerAsX_offense() {
             }
         }
     }
+
+    cout << "Here is the updated board\n";
+    cout << "-----------\n";
+    cout << " " << board[0] << " | " << board[1] << " | " << board[2] << " \n";
+    cout << "-----------\n";
+    cout << " " << board[3] << " | " << board[4] << " | " << board[5] << " \n";
+    cout << "-----------\n";
+    cout << " " << board[6] << " | " << board[7] << " | " << board[8] << " \n";
+    cout << "-----------\n";
 }
 
-void check_for_winner_computer() {
+void check_for_winner_ComputerAsO() {
     if (board[0] == "x" && board[1] == "x" && board[2] == "x") {
         cout << "Player 1 wins" << endl; 
         exit(0); 
@@ -356,9 +365,64 @@ void check_for_winner_computer() {
     } else if (board[2] == "o" && board[4] == "o" && board[6] == "o") {
         cout << "Computer wins" << endl;
         exit(0); 
-    } else if (board[0] != " " && board[1] != " " && board[2] != " " && board[3] != " " && board[4] != " " && board[5] != " " && board[6] != " " && board[7] != " " && board[8] != " ") {
-    cout << "It's a tie" << endl;
-    exit(0);
+    } else if (board[0] != "1" && board[1] != "2" && board[2] != "3" && board[3] != "4" && board[4] != "5" && board[5] != "6" && board[6] != "7" && board[7] != "8" && board[8] != "9") {
+        cout << "It's a tie" << endl;
+        exit(0);
+    }
+}
+
+void check_for_winner_ComputerAsX() {
+    if (board[0] == "x" && board[1] == "x" && board[2] == "x") {
+        cout << "Computer wins" << endl;
+        exit(0);
+    } else if (board[3] == "x" && board[4] == "x" && board[5] == "x") {
+        cout << "Computer wins" << endl;
+        exit(0);
+    } else if (board[6] == "x" && board[7] == "x" && board[8] == "x") {
+        cout << "Computer wins" << endl;
+        exit(0);
+    } else if (board[0] == "x" && board[3] == "x" && board[6] == "x") {
+        cout << "Computer wins" << endl;
+        exit(0);
+    } else if (board[1] == "x" && board[4] == "x" && board[7] == "x") {
+        cout << "Computer wins" << endl;
+        exit(0);
+    } else if (board[2] == "x" && board[5] == "x" && board[8] == "x") {
+        cout << "Computer wins" << endl;
+        exit(0);
+    } else if (board[0] == "x" && board[4] == "x" && board[8] == "x") {
+        cout << "Computer wins" << endl;
+        exit(0);
+    } else if (board[2] == "x" && board[4] == "x" && board[6] == "x") {
+        cout << "Computer wins" << endl;
+        exit(0);
+    } else if (board[0] == "o" && board[1] == "o" && board[2] == "o") {
+        cout << "Player 1 wins" << endl;
+        exit(0);
+    } else if (board[3] == "o" && board[4] == "o" && board[5] == "o") {
+        cout << "Player 1 wins" << endl;
+        exit(0);
+    } else if (board[6] == "o" && board[7] == "o" && board[8] == "o") {
+        cout << "Player 1 wins" << endl;
+        exit(0);
+    } else if (board[0] == "o" && board[3] == "o" && board[6] == "o") {
+        cout << "Player 1 wins" << endl;
+        exit(0);
+    } else if (board[1] == "o" && board[4] == "o" && board[7] == "o") {
+        cout << "Player 1 wins" << endl;
+        exit(0);
+    } else if (board[2] == "o" && board[5] == "o" && board[8] == "o") {
+        cout << "Player 1 wins" << endl;
+        exit(0);
+    } else if (board[0] == "o" && board[4] == "o" && board[8] == "o") {
+        cout << "Player 1 wins" << endl;
+        exit(0);
+    } else if (board[2] == "o" && board[4] == "o" && board[6] == "o") {
+        cout << "Player 1 wins" << endl;
+        exit(0); 
+    } else if (board[0] != "1" && board[1] != "2" && board[2] != "3" && board[3] != "4" && board[4] != "5" && board[5] != "6" && board[6] != "7" && board[7] != "8" && board[8] != "9") {
+        cout << "It's a tie" << endl;
+        exit(0);
     }
 }
 // play against computer stuff ends here 
@@ -367,9 +431,22 @@ void check_for_winner_computer() {
 int main() {
 // start game
     std::start_game();
-    
-    
-    if (comp == 'n' || comp == 'N') {
+    if (comp == 'y' || comp == 'Y') {
+        if (player == 'x' || player == 'X') {
+            // add later
+            std::cout << "not supported yet" << std::endl;
+        } else if (player == 'o' || player == 'O') {
+            for (int i = 0; i < 4; i++) {
+            std::ComputerAsX(); 
+            std::check_for_winner_ComputerAsX(); 
+            std::player2_update_board(); 
+            std::check_for_winner_ComputerAsX();
+            }
+            // 5th turn for x
+            std::ComputerAsX();
+            std::check_for_winner_ComputerAsX();
+        }
+    } else if (comp == 'n' || comp == 'N') {
     for (int i = 0; i < 4; i++) {
     std::player1_update_board(); 
     std::check_for_winner_2players(); 
