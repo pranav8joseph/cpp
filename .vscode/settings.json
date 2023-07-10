@@ -67,5 +67,6 @@
         "__nullptr": "cpp",
         "__string": "cpp",
         "chrono": "cpp"
-    }
+    },
+    "C_Cpp.default.compilerPath": "/usr/bin/g++"
 }
