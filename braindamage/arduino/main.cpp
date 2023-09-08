@@ -6,7 +6,7 @@
 namespace std{
 
 int main() {
-
+std::cout << "I love CP! Club Penguin and the other!" << std::endl;
 
 
 }
