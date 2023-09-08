@@ -6,6 +6,9 @@
 #include <string>
 #include <vector> 
 #include <cstdlib>
+#include <thread> 
+#include <chrono>
+
 
 char player; 
 int player1; 
@@ -61,15 +64,6 @@ void player1_update_board() {
     } else {
         cout << "this spot is already taken"; 
     }
-
-    cout << "Here is the updated board\n";
-    cout << "-----------\n";
-    cout << " " << board[0] << " | " << board[1] << " | " << board[2] << " \n";
-    cout << "-----------\n";
-    cout << " " << board[3] << " | " << board[4] << " | " << board[5] << " \n";
-    cout << "-----------\n";
-    cout << " " << board[6] << " | " << board[7] << " | " << board[8] << " \n";
-    cout << "-----------\n";
 }
 
 void player2_update_board() {
@@ -80,6 +74,9 @@ void player2_update_board() {
     } else {
         cout << "this spot is already taken"; 
     }
+}
+
+void board_update() {
 
     cout << "Here is the updated board\n";
     cout << "-----------\n";
@@ -307,7 +304,14 @@ void ComputerAsX() {
         }
     }
 
-    cout << "Here is the updated board\n";
+    cout << "Thinking...\n";
+    this_thread::sleep_for(std::chrono::seconds(1));
+    cout << "Thinking...\n";
+    this_thread::sleep_for(std::chrono::seconds(1));
+    cout << "Thinking...\n";
+    this_thread::sleep_for(std::chrono::seconds(2));
+
+    cout << "Here is the updated board\n"; 
     cout << "-----------\n";
     cout << " " << board[0] << " | " << board[1] << " | " << board[2] << " \n";
     cout << "-----------\n";
@@ -474,6 +478,14 @@ if (board[0] == "o" && board[1] == "o" && board[2] == "3") {
         }
     }
 
+
+    cout << "Thinking...\n";
+    this_thread::sleep_for(std::chrono::seconds(1));
+    cout << "Thinking...\n";
+    this_thread::sleep_for(chrono::seconds(1));
+    cout << "Thinking...\n";
+    this_thread::sleep_for(chrono::seconds(2));
+
     cout << "Here is the updated board\n";
     cout << "-----------\n";
     cout << " " << board[0] << " | " << board[1] << " | " << board[2] << " \n";
@@ -606,6 +618,7 @@ int main() {
             // add later
             for (int i = 0; i < 4; i++) {
             std::player1_update_board();
+            std::board_update(); 
             std::check_for_winner_ComputerAsO();
             std::ComputerAsO();
             std::check_for_winner_ComputerAsO();
@@ -619,6 +632,7 @@ int main() {
             std::ComputerAsX(); 
             std::check_for_winner_ComputerAsX(); 
             std::player2_update_board(); 
+            std::board_update();
             std::check_for_winner_ComputerAsX();
             }
             // 5th turn for x
@@ -629,12 +643,15 @@ int main() {
     } else if (comp == 'n' || comp == 'N') {
     for (int i = 0; i < 4; i++) {
     std::player1_update_board(); 
+    std::board_update();
     std::check_for_winner_2players(); 
     std::player2_update_board(); 
+    std::board_update();
     std::check_for_winner_2players();
     }
     // 5th turn for x 
     std::player1_update_board();
+    std::board_update();
     std::check_for_winner_2players();
     }
 
