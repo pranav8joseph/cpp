@@ -3,6 +3,11 @@
 #include <vector>
 #include <cmath>
 
+std::string again = "Y";
+double num1; 
+char symbol; 
+double num2;
+
 void greetings(){
     std::cout << "Hello! I will be your calculator today. \n" 
               << "Here are the operations this calculator supports\n"
@@ -41,19 +46,10 @@ void calculations(double num1, double num2, char symbol) {
 
 int main() {
     greetings();
-    std::string again = "Y";
-    double num1; 
-    char symbol; 
-    double num2;
+
     while (again == "Y" || again == "y") {
         std::cin >> num1 >> symbol >> num2;
-    // can be added for clarity for the user
-    //    std::cout << "Enter the first number: ";
-    //     std::cin >> num1;
-    //     std::cout << "Enter the operation symbol: ";
-    //     std::cin >> symbol;
-    //     std::cout << "Enter the second number: ";
-    //     std::cin >> num2;
+    
 
         calculations(num1, num2, symbol); 
 
@@ -62,3 +58,11 @@ int main() {
     }
         return 0; 
     }
+    
+    // can be added for clarity for the user
+    //    std::cout << "Enter the first number: ";
+    //     std::cin >> num1;
+    //     std::cout << "Enter the operation symbol: ";
+    //     std::cin >> symbol;
+    //     std::cout << "Enter the second number: ";
+    //     std::cin >> num2;
