@@ -21,7 +21,7 @@ int main() {
     int C; 
     cin >> C;
 
-    string board[R][C]; 
+    char board[R][C]; 
     // Storing user input in the array
     for (int i = 0; i < R; i++) {
         for (int j = 0; j < C; j++) {
