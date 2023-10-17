@@ -29,11 +29,23 @@ int main() {
         }
     }
 
-    // print board
-    for (int i = 0; i < R; i++) {
+    // // print board
+    // for (int i = 0; i < R; i++) {
+    //     for (int j = 0; j < C; j++) {
+    //         cout << "board [" << i << "][" << j << "] = " << board[i][j] << endl; 
+    //     }
+    // }
+
+    int x = R; 
+    
+    while (x != 0) {
         for (int j = 0; j < C; j++) {
-            cout << "board [" << i << "][" << j << "] = " << board[i][j] << endl; 
+            cout << board[R-x][j] << " "; 
+
+            if (j == C - 1) {
+                x = x - 1;
+                cout << endl; 
+            }
         }
     }
-
 }
