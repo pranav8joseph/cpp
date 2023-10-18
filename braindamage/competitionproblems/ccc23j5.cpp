@@ -1,7 +1,29 @@
 #include <iostream> 
 #include <string> 
+#include <cstring> 
 
 using namespace std;
+
+// int* insertX(int n, int arr[], 
+//             int x, int pos) 
+// { 
+//     int l; 
+ 
+//     // increase the size by 1 
+//     n++; 
+ 
+//     // shift elements forward 
+//     for (i = n; i >= pos; i--) 
+//         arr[i] = arr[i - 1]; 
+ 
+//     // insert x at pos 
+//     arr[pos - 1] = x; 
+ 
+//     return arr; 
+// } 
+int n; 
+int d;
+int pos;
 
 int main() {
 
@@ -20,32 +42,45 @@ int main() {
     // take columns number
     int C; 
     cin >> C;
-
-    char board[R][C]; 
+    
+    char board[R][C*2];
+    char board2[R][C];
     // Storing user input in the array
     for (int i = 0; i < R; i++) {
         for (int j = 0; j < C; j++) {
             cin >> board[i][j];
+            // Add a space between characters
+            if (j < C - 1) {
+                board[i][j + 1] = ' ';
+            }
         }
     }
 
-    // // print board
+
+    // print board
     // for (int i = 0; i < R; i++) {
     //     for (int j = 0; j < C; j++) {
     //         cout << "board [" << i << "][" << j << "] = " << board[i][j] << endl; 
     //     }
     // }
 
-    int x = R; 
-    
-    while (x != 0) {
+     for (int i = 0; i < R; i++) {
         for (int j = 0; j < C; j++) {
-            cout << board[R-x][j] << " "; 
-
-            if (j == C - 1) {
-                x = x - 1;
-                cout << endl; 
-            }
+            cout << board[i][j];
         }
-    }
+        cout << endl; 
+     }
+
+    // int x = R; 
+    
+    // while (x != 0) {
+    //     for (int j = 0; j < C*2; j++) {
+    //         cout << board[R-x][j]; 
+
+    //         if (j == C - 1) {
+    //             x = x - 1;
+    //             cout << endl; 
+    //         }
+    //     }
+    // }
 }
