@@ -50,11 +50,9 @@ int main() {
         for (int j = 0; j < C; j++) {
             cin >> board[i][j];
             // Add a space between characters
-            if (j < C - 1) {
-                board[i][j + 1] = ' ';
+            board[i][j+1] = ' ';
             }
         }
-    }
 
 
     // print board
@@ -64,23 +62,10 @@ int main() {
     //     }
     // }
 
-     for (int i = 0; i < R; i++) {
-        for (int j = 0; j < C; j++) {
+    for (int i = 0; i < R; i++) {
+        for (int j = 0; j < C * 2; j++) {
             cout << board[i][j];
         }
         cout << endl; 
-     }
-
-    // int x = R; 
-    
-    // while (x != 0) {
-    //     for (int j = 0; j < C*2; j++) {
-    //         cout << board[R-x][j]; 
-
-    //         if (j == C - 1) {
-    //             x = x - 1;
-    //             cout << endl; 
-    //         }
-    //     }
-    // }
+    }
 }
