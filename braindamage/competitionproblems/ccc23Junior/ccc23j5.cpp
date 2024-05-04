@@ -47,20 +47,20 @@ int main() {
         for (int j = 0; j < C; j++) {
             // check going right
             for (int d = 0; d < W.length(); d++) {
-                if (board[i][j+d] == W.at(d)) {
+                if (board[i][j+d][0] == W.at(d)) {
                     l += 1; 
-                }
+                } 
             } //check going left
-            if (board[i][j] == W.at(W.length()-1)) {
+            if (board[i][j][0] == W.at(W.length()-1)) {
                 for(int t = 0; t < W.length(); t++) {
-                    if (board[i][j+t] == W.at(W.length()-1-t)) {
+                    if (board[i][j+t][0] == W.at(W.length()-1-t)) {
                         l2 += 1; 
                     }
                 }
             }
         }
     }
-
+// add amount of times the word showed up
     if (l == W.length()) {
         H += (l/W.length()); 
     }
@@ -69,21 +69,35 @@ int main() {
         H += (l2/W.length()); 
     }
 
-
 // FINISH NEXT """""""""""" (same technique as rows checker)
     int q = 0; 
     int q2 = 0; 
 // check columns 
     for (int j = 0; j < C; j++) {
         for (int i = 0; i < R; i++) {
-            // check up
-            if (board[i][j] == "M" && board[i+1][j] == "E" && board[i+2][j] == "N" && board[i+3][j] == "U") {
-                H += 1; 
-            // check down
-            } else if (board[i][j] == "U" && board[i+1][j] == "N" && board[i+2][j] == "E" && board[i+3][j] == "M") {
-                H += 1; 
+            // check going right
+            for (int d = 0; d < W.length(); d++) {
+                if (board[i+d][j][0] == W.at(d)) {
+                    l += 1; 
+                } 
+            } //check going left
+            if (board[i][j][0] == W.at(W.length()-1)) {
+                for(int t = 0; t < W.length(); t++) {
+                    if (board[i+t][j][0] == W.at(W.length()-1-t)) {
+                        l2 += 1; 
+                    }
+                }
             }
         }
+    }
+
+    // add amount of times the word showed up
+    if (q == W.length()) {
+        H += (q/W.length()); 
+    }
+
+    if (q2 == W.length()) {
+        H += (q2/W.length()); 
     }
 
     // RIGHT ANGLE SWITCHES DO THIS AFTER COLUMN CHECKER """"""
