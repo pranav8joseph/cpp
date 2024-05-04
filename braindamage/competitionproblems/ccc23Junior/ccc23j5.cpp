@@ -69,6 +69,8 @@ int main() {
         H += (l2/W.length()); 
     }
 
+    cout << H << endl; 
+
 // FINISH NEXT """""""""""" (same technique as rows checker)
     int q = 0; 
     int q2 = 0; 
