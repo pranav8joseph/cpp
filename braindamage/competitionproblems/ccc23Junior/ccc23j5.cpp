@@ -31,32 +31,37 @@ int main() {
         }
     }
 
-
-    // print board
-    // for (int i = 0; i < R; i++) {
-    //     for (int j = 0; j < C; j++) {
-    //         cout << "board [" << i << "][" << j << "] = " << board[i][j] << endl; 
-    //     }
-    // }
-
     //iterate to find word
     // check rows
     int l = 0; 
     int l2 = 0; 
     for (int i = 0; i < R; i++) {
-        for (int j = 0; j < C; j++) {
+        for (int j = 0; j < C - W.length(); j++) {
             // check going right
+            bool check = true; 
             for (int d = 0; d < W.length(); d++) {
-                if (board[i][j+d][0] == W.at(d)) {
-                    l += 1; 
+                if (board[i][j+d][0] != W.at(d)) {
+                    check = false; 
+                    break; 
                 } 
-            } //check going left
-            if (board[i][j][0] == W.at(W.length()-1)) {
-                for(int t = 0; t < W.length(); t++) {
-                    if (board[i][j+t][0] == W.at(W.length()-1-t)) {
-                        l2 += 1; 
-                    }
+            }
+            if (check == true) {
+                H++; 
+            }
+        }
+    }
+    //check going left
+    for (int i = 0; i < R; i++) {
+        for (int j = 0; j < C - W.length(); j++) {
+            bool check = true; 
+            for(int t = 0; t < W.length(); t++) {
+                if (board[i][j+t][0] != W.at(W.length()-1-t)) {
+                    check = false; 
+                    break; 
                 }
+            } 
+            if (check == true) {
+                H++;
             }
         }
     }
@@ -69,26 +74,37 @@ int main() {
         H += (l2/W.length()); 
     }
 
-    cout << H << endl; 
-
-// FINISH NEXT """""""""""" (same technique as rows checker)
+// (Completed) FINISH NEXT """""""""""" (same technique as rows checker)
     int q = 0; 
     int q2 = 0; 
 // check columns 
     for (int j = 0; j < C; j++) {
-        for (int i = 0; i < R; i++) {
+        for (int i = 0; i < R - W.length(); i++) {
             // check going right
+            bool check = true; 
             for (int d = 0; d < W.length(); d++) {
                 if (board[i+d][j][0] == W.at(d)) {
-                    l += 1; 
-                } 
-            } //check going left
-            if (board[i][j][0] == W.at(W.length()-1)) {
-                for(int t = 0; t < W.length(); t++) {
-                    if (board[i+t][j][0] == W.at(W.length()-1-t)) {
-                        l2 += 1; 
-                    }
+                    check = false; 
+                    break;
                 }
+            }
+            if (check == true) {
+                H++;
+            }
+        }
+    }
+    //check going left
+    for (int j = 0; j < C; j++) {
+        for (int i = 0; i < R - W.length(); i++) {
+            bool check = true; 
+            for(int t = 0; t < W.length(); t++) {
+                if (board[i+t][j][0] != W.at(W.length()-1-t)) {
+                    check = false; 
+                    break; 
+                }
+            }
+            if (check == true) {
+                H++;
             }
         }
     }
