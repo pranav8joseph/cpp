@@ -45,23 +45,17 @@ int main() {
                     break; 
                 } 
             }
-            if (check == true) {
-                H++; 
-            }
         }
     }
     //check going left
     for (int i = 0; i < R; i++) {
-        for (int j = 0; j < C - W.length(); j++) {
-            bool check = true; 
-            for(int t = 0; t < W.length(); t++) {
-                if (board[i][j+t][0] != W.at(W.length()-1-t)) {
-                    check = false; 
-                    break; 
+        for (int j = 0; j < C; j++) {
+            if (board[i][j][0] == W.at(W.length()-1)) {
+                for(int t = 0; t < W.length(); t++) {
+                    if (board[i][j+t][0] == W.at(W.length()-1-t)) {
+                        l2 += 1; 
+                    }
                 }
-            } 
-            if (check == true) {
-                H++;
             }
         }
     }
@@ -79,32 +73,26 @@ int main() {
     int q2 = 0; 
 // check columns 
     for (int j = 0; j < C; j++) {
-        for (int i = 0; i < R - W.length(); i++) {
+        for (int i = 0; i < R; i++) {
             // check going right
-            bool check = true; 
-            for (int d = 0; d < W.length(); d++) {
-                if (board[i+d][j][0] == W.at(d)) {
-                    check = false; 
-                    break;
+            if (board[i][j][0] == W.at(0)) {
+                for (int d = 1; d < W.length(); d++) {
+                    if (board[i+d][j][0] == W.at(d)) {
+                        l += 1; 
+                    } 
                 }
-            }
-            if (check == true) {
-                H++;
-            }
+            } 
         }
     }
     //check going left
     for (int j = 0; j < C; j++) {
-        for (int i = 0; i < R - W.length(); i++) {
-            bool check = true; 
-            for(int t = 0; t < W.length(); t++) {
-                if (board[i+t][j][0] != W.at(W.length()-1-t)) {
-                    check = false; 
-                    break; 
+        for (int i = 0; i < R; i++) {
+            if (board[i][j][0] == W.at(W.length()-1)) {
+                for(int t = 0; t < W.length(); t++) {
+                    if (board[i+t][j][0] == W.at(W.length()-1-t)) {
+                        l2 += 1; 
+                    }
                 }
-            }
-            if (check == true) {
-                H++;
             }
         }
     }
