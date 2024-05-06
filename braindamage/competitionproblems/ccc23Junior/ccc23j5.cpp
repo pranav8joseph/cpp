@@ -69,19 +69,22 @@ int main() {
     }
 
 // (Completed) FINISH NEXT """""""""""" (same technique as rows checker)
-    int q = 0; 
-    int q2 = 0; 
 // check columns 
     for (int j = 0; j < C; j++) {
         for (int i = 0; i < R; i++) {
+            bool check = true; 
             // check going right
             if (board[i][j][0] == W.at(0)) {
                 for (int d = 1; d < W.length(); d++) {
-                    if (board[i+d][j][0] == W.at(d)) {
-                        l += 1; 
+                    if (board[i+d][j][0] != W.at(d)) {
+                        check = false; 
                     } 
                 }
             } 
+            if (check == true) {
+                H++;
+                break; 
+            }
         }
     }
     //check going left
