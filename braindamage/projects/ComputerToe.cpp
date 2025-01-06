@@ -7,7 +7,6 @@
 #include <vector> 
 #include <cstdlib>
 #include <thread> 
-#include <chrono>
 
 
 char player; 
@@ -304,13 +303,6 @@ void ComputerAsX() {
         }
     }
 
-    cout << "Thinking...\n";
-    this_thread::sleep_for(std::chrono::seconds(1));
-    cout << "Thinking...\n";
-    this_thread::sleep_for(std::chrono::seconds(1));
-    cout << "Thinking...\n";
-    this_thread::sleep_for(std::chrono::seconds(2));
-
     cout << "Here is the updated board\n"; 
     cout << "-----------\n";
     cout << " " << board[0] << " | " << board[1] << " | " << board[2] << " \n";
@@ -478,13 +470,6 @@ if (board[0] == "o" && board[1] == "o" && board[2] == "3") {
         }
     }
 
-
-    cout << "Thinking...\n";
-    this_thread::sleep_for(std::chrono::seconds(1));
-    cout << "Thinking...\n";
-    this_thread::sleep_for(chrono::seconds(1));
-    cout << "Thinking...\n";
-    this_thread::sleep_for(chrono::seconds(2));
 
     cout << "Here is the updated board\n";
     cout << "-----------\n";
